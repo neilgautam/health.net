@@ -26,23 +26,23 @@
 body{
 	background-color: LightGray;
 }
-nav{
+.head-master{
 	width:100%;
 	height:100px;
 	background-color: #fff;
 }
-ul{
+.head-ulist{
 	
 }
 
-ul li{
+.head-ulist .head-list{
 	text-align:inline;
 	list-style:none;
 	display:inline;
 	float:left;
 	line-height: 100px;
 }
-ul li a{
+.head-ulist .head-list .head-a{
 	display:block;
 	font-size :14px;
 	font-family:arial;
@@ -50,6 +50,39 @@ ul li a{
 	color:rgb(73,87,119);
 	padding:0 70px;
   }
+  .head-ulist .head-list .head-a :hover{
+	color :red;
+   border:20px DarkBlue;
+  }
 ul li a:hover{
 	color:red;
+}
+
+.heading{
+	font-family:arial;
+	text-decoration:none;
+	font-size:25px;
+}
+.foot{
+
+}
+.foot .foot-heading{
+	list-style:none;
+}
+.foot .foot-heading .heading{
+
+}
+.foot .foot-heading .points{
+	text-decoration:none;
+}
+.foot .foot-heading .points:hover{
+	text-decoration:underline;
+	color:white;
+}
+.foot-master{
+	padding:10px 10px 0 10px;
+	background-color: DarkGray;
+}
+.k1 .k2{
+	display:inline;
 }
