@@ -29,7 +29,7 @@
 				<h3>Patient Signup</h3>	
 			</div>
 			</a>
-			<a href="#" class = " temp-link">
+			<a href="loginaspat.php" class = " temp-link">
 			<div class = "login-sign">
 				<h3>Patient Login</h3>	
 			</div>
