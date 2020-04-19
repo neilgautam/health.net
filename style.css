@@ -72,3 +72,24 @@ line-height:20px;
 .foot-heading .heading {
 	font-size:30px;
 }
+.login-sign{
+	background-color: SlateBlue;
+	margin:16px 16px 0;
+	width:calc(100%-50px);
+	height :200px;
+}
+
+.login-sign h3{
+	color:white;
+	text-align:center;
+	line-height:200px;
+	font-family:arial;
+	font-size:35px;
+}
+.wrapper{
+	width :1200px;
+	margin :0 auto;
+}
+.temp-link{
+	text-decoration:none;
+}
