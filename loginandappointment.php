@@ -24,7 +24,7 @@
 	<main>
 		<div class = "wrapper">
 		<section>
-			<a class = " temp-link" href="#">
+			<a class = " temp-link" href="signupaspat.php">
 			<div class = "login-sign">
 				<h3>Patient Signup</h3>	
 			</div>
