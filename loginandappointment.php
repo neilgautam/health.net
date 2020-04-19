@@ -21,5 +21,31 @@
 				</ul>
 		</nav>		
 	</header>
+	<main>
+		<div class = "wrapper">
+		<section>
+			<a class = " temp-link" href="#">
+			<div class = "login-sign">
+				<h3>Patient Signup</h3>	
+			</div>
+			</a>
+			<a href="#" class = " temp-link">
+			<div class = "login-sign">
+				<h3>Patient Login</h3>	
+			</div>
+			</a>
+			<a href="#" class = " temp-link">
+			<div class = "login-sign">
+				<h3>Doctor Login</h3>	
+			</div>
+			</a>
+			<a href="#" class = " temp-link">
+			<div class = "login-sign">
+				<h3>Admin Login</h3>	
+			</div>
+			</a>
+		</section>
+		</div>
+		</main>
 </body>
 </html>
