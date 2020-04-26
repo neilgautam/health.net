@@ -22,30 +22,23 @@
 		</nav>		
 	</header>
 	<main>
-		<div class = "wrapper">
-		<section>
-			<a class = " temp-link" href="signupaspat.php">
-			<div class = "login-sign">
-				<h3>Patient Signup</h3>	
-			</div>
-			</a>
-			<a href="loginaspat.php" class = " temp-link">
-			<div class = "login-sign">
-				<h3>Patient Login</h3>	
-			</div>
-			</a>
-			<a href="doctorlogin.php" class = " temp-link">
-			<div class = "login-sign">
-				<h3>Doctor Login</h3>	
-			</div>
-			</a>
-			<a  class = " temp-link" href = "adminlogin.php">
-			<div class = "login-sign">
-				<h3>Admin Login</h3>	
-			</div>
-			</a>
-		</section>
-		</div>
-		</main>
+			<form action = "admimodify.inc.php">
+				
+					<label for="doctor_id">Enter Doctor's id which has any discripancy :</label>
+					<input type="text" name="doctor_id" placeholder="Enter doctor's id">
+					
+					<button type="submit">submit</button>
+
+
+					<label for="doctor_id">Enter no of attributes that require changes :</label>
+					<input type="text" name="no_of_fields" placeholder="no of fields">
+
+			</form >
+
+
+			?>
+	</main>
 </body>
 </html>
+
+
