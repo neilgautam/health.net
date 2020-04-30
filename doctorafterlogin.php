@@ -13,13 +13,16 @@
 		</div>
 		<nav class = "head-master">
 				<ul class = "head-ulist">
-					<li class ="head-list"><a href="adminafterlogin.php" class = "head-a">DOCTOR HOME</a></li>
-					<li class ="head-list"><a href="adminsearchdata.php" class = "head-a">PATIENT FILLUP</a></li>
-					<li class ="head-list"><a href="adminmodify.php" class = "head-a">GENERATE PATIENTS REPORT</a></li>
-					<li class ="head-list"><a href="adminmodify.php" class = "head-a">GENERATE DOCTOR'S REPORT</a></li>
-					<li class ="head-list"><a href="doctorlogin.php" class = "head-a">LOGOUT</a></li>
+					<li class ="head-list"><a href="doctorafterlogin.php" class = "head-a">DOCTOR HOME</a></li>
+					<li class ="head-list"><a href="doctorpatientfillup.php" class = "head-a">PATIENT FILLUP</a></li>
+					<li class ="head-list"><a href="doctorreport.php" class = "head-a">GENERATE PATIENTS REPORT</a></li>
+					<li class ="head-list"><a href="doctorappointment.php" class = "head-a">APPOINTMENTS</a></li>
+					<li class ="head-list"><a href="doctorlogout.php" class = "head-a">LOGOUT</a></li>
 				</ul>
 		</nav>		
 	</header>
+		<main>
+			
+		</main>
 </body>
 </html>

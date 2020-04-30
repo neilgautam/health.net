@@ -22,7 +22,7 @@ session_start();
 					<li class ="head-list"><a href="adminafterlogin.php" class = "head-a">ADMIN HOME</a></li>
 					<li class ="head-list"><a href="adminadddoctor.php" class = "head-a">ADD DOCTOR</a></li>
 					<li class ="head-list"><a href="adminsearchdata.php" class = "head-a">SEARCH DATABASES</a></li>
-					<li class ="head-list"><a href="adminmodifydata.php" class = "head-a">MODIFY DATABASE</a></li>
+					<li class ="head-list"><a href="adminmodify.php" class = "head-a">MODIFY DATABASE</a></li>
 					<li class ="head-list"><a href="loginandappointment.php" class = "head-a">LOGOUT</a></li>
 				</ul>
 		</nav>
