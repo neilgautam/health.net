@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST['submit'])){
+if(isset($_POST['admin_modify_submit'])){
 
 	require 'dbh.inc.php';
 
@@ -8,9 +8,9 @@ if(isset($_POST['submit'])){
 
 
 	 $docid = $_POST['doctor_id'];
-	 $feature_count = $_POST['no_of_fields'];
+	 
 
-	 if(empty($docid) || empty($feature_count)){
+	 if(empty($docid)){
 	 	header("Location: ../adminmodify.php?error=emptyfields");
 		exit();
 	 }
@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
 	 	else{
 
 	 		// bind the input of the user into the DB
-	 		mysqli_stmt_bind_param($stmt,"s",$docid);
+	 		mysqli_stmt_bind_param($stmt,"i",$docid);
 	 		mysqli_stmt_execute($stmt);
 
 	 		$result = mysqli_stmt_get_result($stmt);
@@ -43,7 +43,7 @@ if(isset($_POST['submit'])){
 	 				$_SESSION['doc_lastname'] = $row['doctor_last_name'];
 	 				$_SESSION['doc_depr'] = $row['department'];
 	 				$_SESSION['doc_speciality'] = $row['speciality'];
-	 				$_SESSION['doc_password'] = $row['doc_password'];
+	 				
 	 				$_SESSION['doc_doj'] = $row['date_of_join'];
 
 	 				$_SESSION['doc_gender'] = $row['sex'];
@@ -54,7 +54,7 @@ if(isset($_POST['submit'])){
 	 				$_SESSION['doc_salary'] = $row['salary'];
 
 	 			
-	 				header("Location: ../loginaspat.php?login=success");
+	 				header("Location: ../adminmodify.php?doc_id_submit=success");
 					exit();
 
 	 		}else{
@@ -65,7 +65,46 @@ if(isset($_POST['submit'])){
 	 }
 
 }
+else if(isset($_POST['admin_edit'])){
+	
+	session_start();
+	require 'dbh.inc.php';
+
+	$d_fn = $_POST['doc_1'];
+	$d_ln = $_POST['doc_2'];
+	$d_dept = $_POST['doc_3'];
+
+	$d_spec = $_POST['doc_4'];
+	$d_doj = $_POST['doc_5'];
+	$d_sex = $_POST['doc_6'];
+	$d_email = $_POST['doc_7'];
+	$d_contact = $_POST['doc_8'];
+	$d_address = $_POST['doc_9'];
+	$d_dob = $_POST['doc_10'];
+	$d_salary = $_POST['doc_11'];
+	
+
+	$sql= "update doctorsrecord set doctor_first_name = ?,doctor_last_name = ?,department = ?, speciality =?,date_of_join =?, sex =? ,email =?,contact =?,address = ?, date_of_birth = ?, salary = ?  WHERE doctor_id = ?;";
+	$stmt = mysqli_stmt_init($conn);
+	
+	if(!mysqli_stmt_prepare($stmt,$sql)){
+		print("SQL ERROR");
+		header("Location: ../adminmodify.php?error=sqlerror");
+		exit();
+	}else{
+		
+		mysqli_stmt_bind_param($stmt,"sssssssssssi",$d_fn,$d_ln,$d_dept,$d_spec,$d_doj,$d_sex,$d_email,$d_contact,$d_address,$d_dob,$d_salary,$_SESSION['doctor_id']);
+		
+		mysqli_stmt_execute($stmt);
+		
+		header("Location: ../adminmodify.php?admin_edit=success");
+		exit();
+	}
+
+}
+
+
 else{
-	header("Location: ../loginaspat.php");
+	header("Location: ../adminafterlogin.php");
 		exit();
 }
