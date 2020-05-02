@@ -5,7 +5,7 @@
  if(isset($_POST['appoint-abc'])){ 
  	$sql = "select doctor_id,doctor_first_name,doctor_last_name from doctorsrecord where department=?;";
  	
- 	$dept = 'anatomy';
+ 	$dept = $_POST['dept'];
 
  	$stmt = mysqli_stmt_init($conn);
  	if(!mysqli_stmt_prepare($stmt,$sql)){
@@ -71,14 +71,15 @@
    		$arr[]= $row;
    		  }	
    	$val = $arr[0]["doctor_first_name"]." ".$arr[0]["doctor_last_name"];
-   	echo $val;
+   	
    	
    	if(!mysqli_stmt_bind_param($stmt,"issssss",$doc_id,$pat_id,$val,$dept,$description,$date,$status)){
 
    		echo "error !";
    	}
   	mysqli_stmt_execute($stmt);
-
+    header("Location: ../appointment.php?success");
+    exit();
 
 
  }

@@ -4,7 +4,7 @@ if(isset($_POST['login-submit'])){
 
 	require 'dbh.inc.php';
 
-	 $mailuid = $_POST['uname'];
+	 $mailuid = $_POST['docuname'];
 	 $password = $_POST['pwd'];
 
 	 //empty fields
@@ -50,7 +50,7 @@ if(isset($_POST['login-submit'])){
 	 				$_SESSION['doc_address'] = $row['address'];
 	 				$_SESSION['doc_dob'] = $row['date_of_birth'];
 	 				$_SESSION['doc_salary'] = $row['salary'];
-
+	 				$_SESSION['doci_id'] =   $mailuid;    //$row['doctor_id'];
 	 				header("Location: ../doctorafterlogin.php?login=success");
 					exit();
 

@@ -9,13 +9,13 @@
  		header("Location: ../doctorpatientfillup.php?error=emptyfields!");
  		exit();
  	}else{
- 		$sql = "select  patient_id,first_name,last_name,age,sex,contact,email,address from patientlogin where patient_id in (select patient_id from appointment where appoint_id = ?);";
+ 		$sql = "select  patient_id,first_name,last_name,age,sex,contact,email,address from patientlogin where patient_id in (select patient_id from appointment where appoint_id = ? and doctor_id = ?);";
  		$stmt = mysqli_stmt_init($conn);
  		if(!mysqli_stmt_prepare($stmt,$sql)){
  			echo "SQL ERROR ";
  		}
  		else{
- 			mysqli_stmt_bind_param($stmt,"i",$appoint_id);
+ 			mysqli_stmt_bind_param($stmt,"ii",$appoint_id,$_SESSION['doci_id']);
  			mysqli_stmt_execute($stmt);
  			$result = mysqli_stmt_get_result($stmt);
  			$row = mysqli_fetch_assoc($result);
