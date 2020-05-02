@@ -9,3 +9,10 @@ In this project ,we implement the complete frontend and backend of a website whi
 #### HTML
 #### CSS
 
+# Installation 
+### XAMPP 
+Used to define the database on localhost/phpmyadmin
+
+# SQL database
+You can use our database which we implemented in sql_data/hospital.sql
+
