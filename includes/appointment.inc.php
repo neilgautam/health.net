@@ -51,6 +51,27 @@
  	$dept = $_SESSION['dept'];
  	$pat_id = $_SESSION['patient_id'];
 
+
+  $d1 = time();
+# 1588497425  
+  echo $d1;
+
+$d2 = $date;
+$d2 = strtotime($d2);
+
+# 1588497425
+  if($d1>$d2){
+        $_SESSION['fail'] = "true";
+         header("Location: ../appointment.php?error=appointmentDateInvalid");
+       exit();
+   
+  }
+  else{
+    
+  
+
+
+
     $sql  = "insert into appointment(doctor_id,patient_id,doc_name,department,description,appointment_date,status) values(?,?,?,?,?,?,?);";
  	$stmt = mysqli_stmt_init($conn);
  	if(!mysqli_stmt_prepare($stmt,$sql)){
@@ -78,13 +99,24 @@
    		echo "error !";
    	}
   	mysqli_stmt_execute($stmt);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /*       $msg = "hey navdeep it is a demo of mail function!! ssup??";
+
+// use wordwrap() if lines are longer than 70 characters
+            $msg = wordwrap($msg,70);
+
+// send email
+        mail("1998navdeep@gmail.com","My subject",$msg);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
     header("Location: ../appointment.php?success");
     exit();
 
 
  }
 
-
+}
  else{
  	header("Location: ../appointment.php?invalidaccess");
  	exit();
