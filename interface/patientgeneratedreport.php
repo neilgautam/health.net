@@ -22,7 +22,7 @@
 <body>
 	<header>
 		<div class="upmost">
-		<h2 class = "logo">ABC SUPERSPECIALITY <br>HOSPITALS & MEDICAL COLLEGES</h2>
+		<h2 class = "logo">health.NET</h2>
 		</div>
 	
 		<nav class = "head-master">
@@ -39,7 +39,11 @@
 	</header>
 	<main>
 		<?php
-		$sql = "select a.doc_name,a.appointment_date,a.appoint_id,d.medicine_prescribed,d.prescribed_tests,d.disease,d.observation_comments from appointment as a , diagnosis as d where a.patient_id =d.patient_id and a.status = 'Confirmed' and a.patient_id = ?;";
+		$sql = "select a.doc_name,a.appointment_date,a.appoint_id,d.medicine_prescribed,d.prescribed_tests,d.disease,d.observation_comments from appointment as a , diagnosis as d where a.patient_id =d.patient_id and a.status = 'Confirmed' and a.appoint_id = d.appoint_id and a.patient_id = ?;";
+
+
+
+
 		$stmt = mysqli_stmt_init($conn);
 			if(!mysqli_stmt_prepare($stmt,$sql)){
 	 		header("Location: ../patientgeneratedreport.php?error=sqlerror");
@@ -51,8 +55,10 @@
 		$result =  mysqli_stmt_get_result($stmt);
 		$arr= array();
 		while($row = mysqli_fetch_assoc($result)){
+			
 			$arr[] = $row;
 		}
+
 		?>
 	</main>
 	<center>

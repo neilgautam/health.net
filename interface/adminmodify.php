@@ -15,15 +15,15 @@ session_start();
 <body>
 	<header>
 		<div class="upmost">
-		<h2 class = "logo">ABC SUPERSPECIALITY <br>HOSPITALS & MEDICAL COLLEGES</h2>
+		<h2 class = "logo">health.NET</h2>
 		</div>
 		<nav class = "head-master">
 				<ul class = "head-ulist">
-					<li class ="head-list"><a href="adminafterlogin.php" class = "head-a">ADMIN HOME</a></li>
-					<li class ="head-list"><a href="adminadddoctor.php" class = "head-a">ADD DOCTOR</a></li>
+					<li class ="head-list"><a href="adminafterlogin.php"  style = " padding : 0 105px" class = "head-a">ADMIN HOME</a></li>
+					<li class ="head-list"><a href="adminadddoctor.php"  style = " padding : 0 105px"  class = "head-a">ADD DOCTOR</a></li>
 				
-					<li class ="head-list"><a href="adminmodify.php" class = "head-a">MODIFY DATABASE</a></li>
-					<li class ="head-list"><a href="includes/logout.inc.php" class = "head-a">LOGOUT</a></li>
+					<li class ="head-list"><a href="adminmodify.php"  style = " padding : 0 105px"  class = "head-a">MODIFY DATABASE</a></li>
+					<li class ="head-list"><a href="includes/logout.inc.php"  style = " padding : 0 105px"  class = "head-a">LOGOUT</a></li>
 				</ul>
 		</nav>		
 	</header>
@@ -42,8 +42,8 @@ session_start();
 		<center>
 
 			
-				
-
+				<?php 
+				if(isset($_SESSION['doctor_id'])) { ?>
 
 					<form action="includes/adminmodify.inc.php" method="POST">
 						<label> DOCTOR'S FIRST NAME :</label>
@@ -71,6 +71,7 @@ session_start();
 						<input type="text" name="doc_11" value="<?php echo $_SESSION['doc_salary']; ?>"><br><br>
 						<button type = "submit" name="admin_edit">EDIT</button>
 					</form>
+				<?php } ?>
 
 				</center>
 	</main>

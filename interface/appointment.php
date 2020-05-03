@@ -1,7 +1,7 @@
 <?php
 include 'includes/dbh.inc.php';
 	session_start();
-	$_SESSION['dept'] = 'None';
+	
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ include 'includes/dbh.inc.php';
 <body>
 	<header>
 		<div class="upmost">
-		<h2 class = "logo">ABC SUPERSPECIALITY <br>HOSPITALS & MEDICAL COLLEGES</h2>
+		<h2 class = "logo">health.NET</h2>
 		</div>
 		<nav class = "head-master">
 				<ul class = "head-ulist">
@@ -31,6 +31,11 @@ include 'includes/dbh.inc.php';
 	</header>
 	<main>
 		<center>
+			<?php if(isset($_SESSION['fail'] )){ ?>
+				<h4 style="color: red">INVALID APPOINTMENT DATE</h4>
+			<?php } ?>
+
+
 		<form action = "includes/appointment.inc.php " method = "POST">
 					<label for="dept"style = "padding: 30px auto;">Choose Department</label>
 					<br>
@@ -56,7 +61,8 @@ include 'includes/dbh.inc.php';
 					<br>
 
 					<form action="includes/appointment.inc.php"  method="POST">
-					<label style="padding: 30px auto">Choose Your Doctor in <?php echo $_SESSION['dept'];?></label>
+<?php    if(isset($_SESSION['dept'])){ ?>
+					<label style="padding: 30px auto">Choose Your Doctor in <?php echo $_SESSION['dept'];?></label> <?php } ?>
 					<br>
 					<select name="doctor-selection">
         				<option selected="selected">Choose one</option>

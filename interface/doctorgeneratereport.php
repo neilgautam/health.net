@@ -13,7 +13,7 @@
 <body>
 	<header>
 		<div class="upmost">
-		<h2 class = "logo">ABC SUPERSPECIALITY <br>HOSPITALS & MEDICAL COLLEGES</h2>
+		<h2 class = "logo">health.NET</h2>
 		</div>
 		<nav class = "head-master">
 				<ul class = "head-ulist">
@@ -79,24 +79,27 @@ if(isset($_SESSION['pat_fname'])){
 	$sql_pat_appointments = "select * from appointment as a ,diagnosis as d where a.patient_id = d.patient_id  and a.appoint_id  = d.appoint_id and a.status = 'Confirmed' and a.patient_id = ?;";
 	$stmt2 = mysqli_stmt_init($conn);
 		if(!mysqli_stmt_prepare($stmt2,$sql_pat_appointments)){
-		echo "SQL ERROR 1";
+		   echo "SQL ERROR 1";
 	} 
 	else{
+		$correct  = "true";
 		mysqli_stmt_bind_param($stmt2,"s",$_SESSION['sid']);
 		mysqli_stmt_execute($stmt2);
 		$table_result1 = mysqli_stmt_get_result($stmt2);
 		
 		if( mysqli_num_rows($table_result1)>=1){
-
+				$correct ="false";
+				#echo "ENTERING LOOP";
 			$temp_arr = array();
-		while($row = mysqli_fetch_assoc($table_result1)){
+			while($row = mysqli_fetch_assoc($table_result1)){
 				$temp_arr[] = $row;
 		}
-			
+			#print_r($temp_arr);
 			
 	}}
-
+	if($correct=="false"){
 		foreach($temp_arr as $r){
+	}
 	?>
 		<div class="container">
 			

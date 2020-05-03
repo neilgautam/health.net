@@ -27,7 +27,7 @@ th, td {
 <body>
 	<header>
 		<div class="upmost">
-		<h2 class = "logo">ABC SUPERSPECIALITY <br>HOSPITALS & MEDICAL COLLEGES</h2>
+		<h2 class = "logo">health.NET</h2>
 		</div>
 		<nav class = "head-master">
 				<ul class = "head-ulist">
@@ -40,34 +40,6 @@ th, td {
 		</nav>		
 	</header>
 		<main>
-			<?php
-
-				include "includes/dbh.inc.php";
-				$sql = "select ap.appoint_id,pt.first_name , pt.last_name, pt.age,pt.sex,pt.contact,ap.description,ap.appointment_date,ap.status from patientlogin as pt , appointment as ap where ap.doctor_id = ? and ap.status = 'Pending' and pt.patient_id=ap.patient_id;";
-
-				$stmt = mysqli_stmt_init($conn);
-				mysqli_stmt_prepare($stmt,$sql);
-				
-				
-
-				mysqli_stmt_bind_param($stmt,"i",$_SESSION['doci_id']);
-				mysqli_stmt_execute($stmt);
-				$result = mysqli_stmt_get_result($stmt);
-				
-				$row = mysqli_fetch_assoc($result);
-				
-				if(mysqli_num_rows($result)>=1){
-		
-				$count = 0;
-				$arr = array();
-				while($row = mysqli_fetch_assoc($result)){
-						
-						$arr[] = $row;
-				}
-				
-			}
-
-			?>
 
 
 			<div id ="sec_1" >
@@ -83,6 +55,42 @@ th, td {
 						<th>Appointment Date</th>
 						<th>Status</th>
 					</tr>
+
+
+
+
+
+			
+			<?php
+
+				include "includes/dbh.inc.php";
+				$sql = "select ap.appoint_id,pt.first_name , pt.last_name, pt.age,pt.sex,pt.contact,ap.description,ap.appointment_date,ap.status from patientlogin as pt , appointment as ap where ap.doctor_id = ? and ap.status = 'Pending' and pt.patient_id=ap.patient_id;";
+
+				$stmt = mysqli_stmt_init($conn);
+				mysqli_stmt_prepare($stmt,$sql);
+				
+				
+
+				mysqli_stmt_bind_param($stmt,"i",$_SESSION['doci_id']);
+				mysqli_stmt_execute($stmt);
+				$result = mysqli_stmt_get_result($stmt);
+				
+				if(mysqli_num_rows($result)>=1){
+					{
+		
+				$count = 0;
+				$arr = array();
+				while($row = mysqli_fetch_assoc($result)){
+						 
+						$arr[] = $row;
+				}
+				
+			}
+
+			?>
+
+
+			
 			<?php		
 			
 			foreach($arr as $r){
@@ -99,7 +107,7 @@ th, td {
 						<td><?php echo $r['appointment_date']; ?></td>
 						<td><?php echo $r['status']; ?></td>
 					</tr>
-				<?php } ?>	
+				<?php }} ?>	
 
 				</table>
 				
